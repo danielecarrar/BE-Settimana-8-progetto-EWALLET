@@ -1,0 +1,42 @@
+WILDFLY VERSIONE 15
+JavaSE - V 1.8
+
+RIEPILOGO FUNZIONI:
+
+Esempio inserimento conto metodo POST:
+	 {
+	        "iban": "IT000076",
+	        "data": "20-12-2018",
+	        "saldo": 531.50,
+	        "intestatario": "Luca Giuliani"
+	 }
+---------------------------------------------------
+Visualizzazione dei conti metodo GET:
+http://localhost:8080/Ewallet/rest/ewallet
+---------------------------------------------------
+Aggiornamento conto metodo PUT:
+http://localhost:8080/Ewallet/rest/ewallet
+	{
+	        "iban": "IT12345",
+	        "data": "20-12-2019",
+	        "saldo": 5361.50,
+	        "intestatario": "jerry scotty"
+	}
+--------------------------------------------------
+Eliminazione del conto metodo DELETE:
+il conto si elimina sia lasciando solo l'iban (json) che l'intero conto, che passando l'iban nell'URI.
+Alcune volte capita di dover dare SEND una seconda volta per farlo andare(!?)
+http://localhost:8080/Ewallet/rest/ewallet/
+--------------------------------------------------
+Prelievo dal conto metodo POST:
+http://localhost:8080/Ewallet/rest/ewallet/preleva/IT000076/87.00
+
+Se iban conto non esiste ci avvisa
+--------------------------------------------------
+Deposito dal conto metodo POST:
+http://localhost:8080/Ewallet/rest/ewallet/deposita/IT000076/87.00
+
+Se iban conto non esiste ci avvisa
+--------------------------------------------------
+Recupero lista movimenti di quel conto (specificandone iban) metodo GET:
+http://localhost:8080/Ewallet/rest/ewallet/IT000076
